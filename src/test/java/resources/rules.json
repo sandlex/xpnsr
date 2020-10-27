@@ -1,0 +1,20 @@
+{
+  "account": "NL67INGB0656001666",
+  "updated": "timestamp",
+  "version": "1",
+  "categories" : [
+    {
+      "name" : "car.tax|car.fuel|car.service",
+      "rules" : [
+        {
+          "field": "account",//Name, Notifications
+          "value": "NL46RABO0306722054"
+        },
+        {
+          "field": "description",
+          "value": "*Vodafone*"//"*Vodafone", "Vodafone*"
+        },
+      ]
+    }
+  ]
+}

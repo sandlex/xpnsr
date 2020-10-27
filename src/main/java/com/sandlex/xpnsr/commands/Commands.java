@@ -6,9 +6,6 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
 
-/**
- * https://docs.spring.io/spring-shell/docs/current-SNAPSHOT/reference/htmlsingle/#_using_spring_shell
- */
 @RequiredArgsConstructor
 @ShellComponent
 public class Commands {
@@ -16,8 +13,13 @@ public class Commands {
     private final StatementsFileParser parser;
 
     @ShellMethod("Parses statement file")
-    public void parse(@ShellOption(defaultValue = "/Users/sandlex/Downloads/NL67INGB0656001666_01-01-2012_04-08-2018.csv") String file) {
+    public void parse(@ShellOption(defaultValue = "/Users/apeskov/Downloads/NL67INGB0656001666_01-01-2012_23-10-2020.csv") String file) {
         parser.parse(file);
-
     }
+    
+    //stat - number of transaction, number of uncategorised transactions
+    //showcat - displays all categories
+    //uncat - shows uncategorised transactions, number or full/paginated list
+    //cat - shows random transaction for categorisation
+    //export - exports as file with date, amount, category to insert into excel
 }
