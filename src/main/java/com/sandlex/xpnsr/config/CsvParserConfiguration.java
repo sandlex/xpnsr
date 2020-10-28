@@ -1,5 +1,6 @@
 package com.sandlex.xpnsr.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvParser;
@@ -23,4 +24,10 @@ public class CsvParserConfiguration {
         return mapper.readerForArrayOf(String.class).with(schema);
     }
 
+    @Bean
+    public ObjectMapper jsonObjectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.findAndRegisterModules();
+        return objectMapper;
+    }
 }

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,20 +24,19 @@ public class StatementsFileParser {
 
     private final ObjectReader objectReader;
 
-    public void parse(String fileName) {
+    public List<Transaction> parse(String fileName) {
         File file = new File(fileName);
-
+        List<Transaction> result = Collections.emptyList();
         try {
             MappingIterator<String[]> it = objectReader.readValues(file);
-            List<Transaction> result = it.readAll()
+            result = it.readAll()
                     .stream()
                     .map(this::createStatement)
                     .collect(Collectors.toList());
-
-            System.out.println("transactions: " + result.size());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return result;
     }
 
     private Transaction createStatement(String[] fields) {
